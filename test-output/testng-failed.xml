@@ -5,7 +5,9 @@
     <classes>
       <class name="Demo.University">
         <methods>
-          <include name="university"/>
+          <include name="deleteUniversity"/>
+          <include name="addUniversity"/>
+          <include name="setup"/>
         </methods>
       </class> <!-- Demo.University -->
     </classes>

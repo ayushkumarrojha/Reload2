@@ -8,10 +8,10 @@
     <classes>
       <class name="Demo.Login"/>
     </classes>
-  </test> <!-- 
+  </test> 
   <test name="Add University">
     <classes>
       <class name="Demo.University"/>
     </classes>
-  </test> -->
+  </test>
 </suite> <!-- Suite -->

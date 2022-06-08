@@ -1,5 +1,6 @@
 package Demo;
 
+import io.qameta.allure.Description;
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
 
@@ -24,7 +25,8 @@ public class Login {
 		RestAssured.baseURI = baseUrl;
 	}
 	
-	@Test(enabled = true, description = "Validate if user is able to login")
+	@Test(enabled = true)
+	@Description("Validate if user is able to login")
 	public void login() {
 		// TODO Auto-generated method stub
 		// login to cane sense api
@@ -46,7 +48,8 @@ public class Login {
 		System.out.println(accToken);
 	}
 	
-	@Test(enabled = true, description = "Validate if reset password is working")
+	@Test(enabled = true)
+	@Description("Validate if reset password is working")
 	public void resetPassword() {
 		
 		given().log().all().header("Authorization","Bearer "+accToken).header("Content-Type","application/json")
@@ -58,8 +61,8 @@ public class Login {
 		.body(LoginReqBod.fpBod()).when().post("/auth/forgot-password")
 		.then().log().all().assertThat().statusCode(200).body("success", equalTo(true));*/
 	
-	@Test(enabled = true, description = "Validate if refresh token is working")
-	
+	@Test(enabled = true)
+	@Description("Validate if refresh token is working")
 	public void refreshToken() {
 		
 		String refresh  = given().log().all().header("Authorization","Bearer "+refToken).header("Content-Type", "none")
@@ -70,7 +73,8 @@ public class Login {
 		accToken = js1.getString("data.authToken.accessToken");
 	}
 	
-	@Test(enabled = true, description = "Validate if who am i is working")
+	@Test(enabled = true)
+	@Description("Validate if who am i is working")
 	public void whoAmI() {
 		
 		

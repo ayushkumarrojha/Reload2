@@ -1,33 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
+<testng-results ignored="0" total="8" passed="8" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-06-02T00:13:13 IST" name="Demo Suite" finished-at="2022-06-02T00:13:22 IST" duration-ms="8993">
+  <suite started-at="2022-06-08T22:24:22 IST" name="Demo Suite" finished-at="2022-06-08T22:24:32 IST" duration-ms="9298">
     <groups>
     </groups>
-    <test started-at="2022-06-02T00:13:13 IST" name="Login" finished-at="2022-06-02T00:13:22 IST" duration-ms="8993">
+    <test started-at="2022-06-08T22:24:22 IST" name="Login" finished-at="2022-06-08T22:24:31 IST" duration-ms="8676">
       <class name="Demo.Login">
-        <test-method is-config="true" signature="setup()[pri:0, instance:Demo.Login@7d3d101b]" started-at="2022-06-02T00:13:13 IST" name="setup" finished-at="2022-06-02T00:13:14 IST" duration-ms="883" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:Demo.Login@1a72a540]" started-at="2022-06-08T22:24:22 IST" name="setup" finished-at="2022-06-08T22:24:23 IST" duration-ms="879" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="login()[pri:0, instance:Demo.Login@7d3d101b]" started-at="2022-06-02T00:13:14 IST" name="login" description="Validate if user is able to login" finished-at="2022-06-02T00:13:22 IST" duration-ms="7630" status="PASS">
+        <test-method signature="login()[pri:0, instance:Demo.Login@1a72a540]" started-at="2022-06-08T22:24:23 IST" name="login" finished-at="2022-06-08T22:24:31 IST" duration-ms="7332" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- login -->
-        <test-method signature="refreshToken()[pri:0, instance:Demo.Login@7d3d101b]" started-at="2022-06-02T00:13:22 IST" name="refreshToken" description="Validate if refresh token is working" finished-at="2022-06-02T00:13:22 IST" duration-ms="134" status="PASS">
+        <test-method signature="refreshToken()[pri:0, instance:Demo.Login@1a72a540]" started-at="2022-06-08T22:24:31 IST" name="refreshToken" finished-at="2022-06-08T22:24:31 IST" duration-ms="133" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- refreshToken -->
-        <test-method signature="resetPassword()[pri:0, instance:Demo.Login@7d3d101b]" started-at="2022-06-02T00:13:22 IST" name="resetPassword" description="Validate if reset password is working" finished-at="2022-06-02T00:13:22 IST" duration-ms="121" status="PASS">
+        <test-method signature="resetPassword()[pri:0, instance:Demo.Login@1a72a540]" started-at="2022-06-08T22:24:31 IST" name="resetPassword" finished-at="2022-06-08T22:24:31 IST" duration-ms="126" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- resetPassword -->
-        <test-method signature="whoAmI()[pri:0, instance:Demo.Login@7d3d101b]" started-at="2022-06-02T00:13:22 IST" name="whoAmI" description="Validate if who am i is working" finished-at="2022-06-02T00:13:22 IST" duration-ms="88" status="PASS">
+        <test-method signature="whoAmI()[pri:0, instance:Demo.Login@1a72a540]" started-at="2022-06-08T22:24:31 IST" name="whoAmI" finished-at="2022-06-08T22:24:31 IST" duration-ms="100" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- whoAmI -->
       </class> <!-- Demo.Login -->
     </test> <!-- Login -->
+    <test started-at="2022-06-08T22:24:31 IST" name="Add University" finished-at="2022-06-08T22:24:32 IST" duration-ms="564">
+      <class name="Demo.University">
+        <test-method is-config="true" signature="setup()[pri:0, instance:Demo.University@7aaca91a]" started-at="2022-06-08T22:24:31 IST" name="setup" finished-at="2022-06-08T22:24:31 IST" duration-ms="159" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="addUniversity()[pri:1, instance:Demo.University@7aaca91a]" started-at="2022-06-08T22:24:31 IST" name="addUniversity" finished-at="2022-06-08T22:24:31 IST" duration-ms="130" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- addUniversity -->
+        <test-method signature="updateUniversity()[pri:2, instance:Demo.University@7aaca91a]" started-at="2022-06-08T22:24:31 IST" name="updateUniversity" finished-at="2022-06-08T22:24:32 IST" duration-ms="96" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- updateUniversity -->
+        <test-method signature="getUniversity()[pri:3, instance:Demo.University@7aaca91a]" started-at="2022-06-08T22:24:32 IST" name="getUniversity" finished-at="2022-06-08T22:24:32 IST" duration-ms="48" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getUniversity -->
+        <test-method signature="deleteUniversity()[pri:4, instance:Demo.University@7aaca91a]" started-at="2022-06-08T22:24:32 IST" name="deleteUniversity" finished-at="2022-06-08T22:24:32 IST" duration-ms="105" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- deleteUniversity -->
+      </class> <!-- Demo.University -->
+    </test> <!-- Add University -->
   </suite> <!-- Demo Suite -->
 </testng-results>

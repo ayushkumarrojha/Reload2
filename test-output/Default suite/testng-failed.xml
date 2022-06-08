@@ -5,8 +5,8 @@
     <classes>
       <class name="Demo.University">
         <methods>
-          <include name="deleteUniversity"/>
           <include name="addUniversity"/>
+          <include name="addTeam"/>
           <include name="setup"/>
         </methods>
       </class> <!-- Demo.University -->

@@ -8,7 +8,6 @@ import org.testng.annotations.BeforeTest;
 //import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import files.LoginReqBod;
 import files.ReusableMethod;
 import files.UniversityBody;
 import io.qameta.allure.Description;
@@ -43,9 +42,7 @@ public class University {
 		
 		JsonPath js1 = ReusableMethod.rawToJson(addOrgBody);
 		universityId = js1.getInt("data.organization.id");
-		String universityName = js1.getString("data.organization.id");
 		System.out.println(universityId);
-		System.out.println(universityName);
 	}
 	
 	@Test(priority=2, enabled = true)

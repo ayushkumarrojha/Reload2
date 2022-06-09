@@ -4,7 +4,7 @@ public class LoginReqBod {
 	
 	public static String loginBod() {
 		return "{\n"
-				+ "    \"username\": \"ayush2394@outlook.com\",\n"
+				+ "    \"username\": \"ayushk@geekyants.com\",\n"
 				+ "    \"password\": \"reload\"\n"
 				+ "}";
 	}

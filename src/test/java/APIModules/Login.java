@@ -1,5 +1,6 @@
 package APIModules;
 
+import io.qameta.allure.Step;
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
 
@@ -46,6 +47,7 @@ public class Login {
 		return Arrays.asList(access_token, refresh_token);
 	}
 	
+	@Step()
 	public void resetPassword() {
 		given().log().all().header("Authorization","Bearer "+this.getAccessToken()).header("Content-Type","application/json")
 		.body(LoginReqBod.resetBod()).when().post("/auth/reset-password")

@@ -2,7 +2,7 @@ package Tests;
 
 import org.testng.annotations.Test;
 
-import Demo.Login;
+import APIModules.Login;
 import Utilities.Constants;
 import io.qameta.allure.Description;
 

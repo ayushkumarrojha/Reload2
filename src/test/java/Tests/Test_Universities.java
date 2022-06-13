@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.testng.annotations.Test;
 
-import Demo.University;
+import APIModules.University;
 import Utilities.ReusableMethod;
 import io.qameta.allure.Description;
 import io.restassured.path.json.JsonPath;

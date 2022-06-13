@@ -47,7 +47,7 @@ public class Login {
 		return Arrays.asList(access_token, refresh_token);
 	}
 	
-	@Step()
+	//@Step()
 	public void resetPassword() {
 		given().log().all().header("Authorization","Bearer "+this.getAccessToken()).header("Content-Type","application/json")
 		.body(LoginReqBod.resetBod()).when().post("/auth/reset-password")

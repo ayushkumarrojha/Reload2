@@ -6,12 +6,17 @@
   </listeners>
   <test name="Login">
     <classes>
-      <class name="Demo.Login"/>
+      <class name="Tests.Test_Login"/>
     </classes>
   </test> 
-  <test name="Add University">
+  <test name="University APIs">
     <classes>
-      <class name="Demo.University"/>
+      <class name="Tests.Test_Universities"/>
+    </classes>
+  </test>
+  <test name="Teams APIs">
+    <classes>
+      <class name="Tests.Test_Team"/>
     </classes>
   </test>
 </suite> <!-- Suite -->

@@ -2,36 +2,32 @@
 <testng-results ignored="0" total="5" passed="5" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-06-09T23:33:21 IST" name="Default suite" finished-at="2022-06-09T23:33:30 IST" duration-ms="8970">
+  <suite started-at="2022-06-12T23:04:49 IST" name="Default suite" finished-at="2022-06-12T23:04:55 IST" duration-ms="5880">
     <groups>
     </groups>
-    <test started-at="2022-06-09T23:33:21 IST" name="Default test" finished-at="2022-06-09T23:33:30 IST" duration-ms="8970">
-      <class name="Demo.Team">
-        <test-method is-config="true" signature="setup()[pri:0, instance:Demo.Team@1a72a540]" started-at="2022-06-09T23:33:21 IST" name="setup" finished-at="2022-06-09T23:33:25 IST" duration-ms="3256" status="PASS">
+    <test started-at="2022-06-12T23:04:49 IST" name="Default test" finished-at="2022-06-12T23:04:55 IST" duration-ms="5880">
+      <class name="Tests.Test_Team">
+        <test-method signature="getTeam_test()[pri:1, instance:Tests.Test_Team@12e12ac9]" started-at="2022-06-12T23:04:49 IST" name="getTeam_test" finished-at="2022-06-12T23:04:54 IST" duration-ms="5253" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="addTeam()[pri:1, instance:Demo.Team@1a72a540]" started-at="2022-06-09T23:33:25 IST" name="addTeam" finished-at="2022-06-09T23:33:30 IST" duration-ms="5269" status="PASS">
+        </test-method> <!-- getTeam_test -->
+        <test-method signature="addTeam_test()[pri:2, instance:Tests.Test_Team@12e12ac9]" started-at="2022-06-12T23:04:54 IST" name="addTeam_test" finished-at="2022-06-12T23:04:55 IST" duration-ms="250" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- addTeam -->
-        <test-method signature="updateTeam()[pri:2, instance:Demo.Team@1a72a540]" started-at="2022-06-09T23:33:30 IST" name="updateTeam" finished-at="2022-06-09T23:33:30 IST" duration-ms="123" status="PASS">
+        </test-method> <!-- addTeam_test -->
+        <test-method signature="updateTeam_test()[pri:3, instance:Tests.Test_Team@12e12ac9]" started-at="2022-06-12T23:04:55 IST" name="updateTeam_test" finished-at="2022-06-12T23:04:55 IST" duration-ms="125" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- updateTeam -->
-        <test-method signature="getTeam()[pri:3, instance:Demo.Team@1a72a540]" started-at="2022-06-09T23:33:30 IST" name="getTeam" finished-at="2022-06-09T23:33:30 IST" duration-ms="79" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- getTeam -->
-        <test-method signature="getSingleTeam()[pri:4, instance:Demo.Team@1a72a540]" started-at="2022-06-09T23:33:30 IST" name="getSingleTeam" finished-at="2022-06-09T23:33:30 IST" duration-ms="68" status="PASS">
+        </test-method> <!-- updateTeam_test -->
+        <test-method signature="getSingleTeam()[pri:4, instance:Tests.Test_Team@12e12ac9]" started-at="2022-06-12T23:04:55 IST" name="getSingleTeam" finished-at="2022-06-12T23:04:55 IST" duration-ms="88" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getSingleTeam -->
-        <test-method signature="deleteTeam()[pri:5, instance:Demo.Team@1a72a540]" started-at="2022-06-09T23:33:30 IST" name="deleteTeam" finished-at="2022-06-09T23:33:30 IST" duration-ms="61" status="PASS">
+        <test-method signature="deleteTeam_test()[pri:5, instance:Tests.Test_Team@12e12ac9]" started-at="2022-06-12T23:04:55 IST" name="deleteTeam_test" finished-at="2022-06-12T23:04:55 IST" duration-ms="63" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- deleteTeam -->
-      </class> <!-- Demo.Team -->
+        </test-method> <!-- deleteTeam_test -->
+      </class> <!-- Tests.Test_Team -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

@@ -1,0 +1,12 @@
+{
+	"name": "Uni",
+	"full_name": "CSVT",
+	"logo": "https://www.w3schools.com/howto/img_avatar1.png",
+	"address1": "test address 1",
+	"address2": "test address 2",
+	"city": "test city",
+	"zip": "00001",
+	"id_status": 1,
+	"id_country": 1,
+	"new_full_name": "CSVU"
+}

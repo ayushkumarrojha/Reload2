@@ -1,57 +1,45 @@
 package Demo;
 
-import static org.hamcrest.Matchers.equalTo;
+//import static org.hamcrest.Matchers.equalTo;
 
 import org.testng.Assert;
 //import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeTest;
+//import org.testng.annotations.BeforeTest;
 //import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+//import org.testng.annotations.Test;
 
-import files.ReusableMethod;
-import files.UniversityBody;
-import io.qameta.allure.Description;
-import io.restassured.RestAssured;
+import Utilities.Constants;
+import Utilities.ReusableMethod;
+import Payload.UniversityBody;
+//import io.qameta.allure.Description;
+//import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
 
 import static io.restassured.RestAssured.*;
 
 public class University {
 	
-	public static String accToken;
+	String access_token = null;
 	public static int universityId;
-	public static int teamId;
 	final String baseUrl = "http://localhost:5002/v0";
+	Login l = new Login(Constants.email, Constants.password);
 	
-	@BeforeTest
-	public void setup() {
-		RestAssured.baseURI = baseUrl;
-		accToken = ReusableMethod.LoginAsSuperAdmin();
-	}
-	
-	
-	@Test(priority=1, enabled = true)
-	@Description("Validate if user is able to add University")
-	public void addUniversity() {		
+	public void addUniversity(int count) {		
 		//add university
-		String addOrgBody = given().log().all().header("Content-Type","application/json").header("Authorization","Bearer "+accToken)
-		.body(UniversityBody.addUniversity())
+		String addOrgBody = given().log().all().header("Content-Type","application/json").header("Authorization","Bearer "+l.getAccessToken())
+		.body(UniversityBody.addUniversity(count))
 		.when().post("/org")
 		.then().log().all().assertThat().statusCode(200)
 		.extract().response().asString();
 		
 		JsonPath js1 = ReusableMethod.rawToJson(addOrgBody);
 		universityId = js1.getInt("data.organization.id");
-		System.out.println(universityId);
 	}
 	
-	@Test(priority=2, enabled = true)
-	@Description("Validate if user is able to update University")
-	public void updateUniversity() {		
+	public void updateUniversity(int count) {		
 		//update university
-		String fn = "Default org name";
-		String updateOrg = given().log().all().header("Content-Type","application/json").header("Authorization","Bearer "+accToken)
-		.body(UniversityBody.updateOrg(fn))
+		String updateOrg = given().log().all().header("Content-Type","application/json").header("Authorization","Bearer "+l.getAccessToken())
+		.body(UniversityBody.updateOrg(count))
 		.when().put("/org/"+universityId+"")
 		.then().log().all().assertThat().statusCode(200)
 		.extract().response().asString();
@@ -59,25 +47,25 @@ public class University {
 		JsonPath js1 = ReusableMethod.rawToJson(updateOrg);
 		int UnivId = js1.getInt("data.organization.id");
 		Assert.assertEquals(UnivId, universityId);
-		String fullName = js1.getString("data.organization.full_name");
-		Assert.assertEquals(fn, fullName);
+		//String fullName = js1.getString("data.organization.full_name");
+		//Assert.assertEquals(, fullName);
 		
 	}
 	
-	@Test(priority=3, enabled = true)
-	@Description("Validate if user is able to view all the organization")
-	public void getUniversity() {		
+	public String getUniversity() {		
 		//get university
-		given().log().all().header("Authorization","Bearer "+accToken)
+		String getUnv = given().log().all().header("Authorization","Bearer "+l.getAccessToken())
 		.when().get("/org")
-		.then().log().all().assertThat().statusCode(200);
+		.then().log().all().assertThat().statusCode(200)
+		.extract().response().asString();
+		
+		return getUnv;
 	}
 	
-	@Test(priority=4, enabled = true)
-	@Description("Validate if user is able to delete")
+
 	public void deleteUniversity() {		
 		//get university
-		String deleteOrg = given().log().all().header("Authorization","Bearer "+accToken)
+		String deleteOrg = given().log().all().header("Authorization","Bearer "+l.getAccessToken())
 		.when().delete("/org/"+universityId+"")
 		.then().log().all().assertThat().statusCode(200)
 		.extract().response().asString();

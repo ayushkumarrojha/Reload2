@@ -1,39 +1,31 @@
 package Demo;
 
-import static org.hamcrest.Matchers.equalTo;
+//import static org.hamcrest.Matchers.equalTo;
 
 import org.testng.Assert;
 //import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeTest;
+//import org.testng.annotations.BeforeTest;
 //import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+//import org.testng.annotations.Test;
 import static io.restassured.RestAssured.*;
 
-import files.LoginReqBod;
-import files.ReusableMethod;
-import files.TeamBody;
-import files.UniversityBody;
-import io.qameta.allure.Description;
-import io.restassured.RestAssured;
+import Utilities.Constants;
+import Utilities.ReusableMethod;
+import Payload.TeamBody;
+//import io.qameta.allure.Description;
+//import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
 
 public class Team {
 	
-	public static String accToken;
+	String access_token = null;
 	public static int teamId;
 	final String baseUrl = "http://localhost:5002/v0";
+	Login l = new Login(Constants.email, Constants.password);
 	
-	@BeforeTest
-	public void setup() {
-		RestAssured.baseURI = baseUrl;
-		accToken = ReusableMethod.LoginAsSuperAdmin();
-	}
-	
-	@Test(priority=1, enabled = true)
-	@Description("Validate if user is able to add Team")
-	public void addTeam() {
-		String team = given().log().all().header("Content-Type","application/json").header("Authorization","Bearer "+accToken)
-		.body(TeamBody.addTeam())
+	public void addTeam(int count) {
+		String team = given().log().all().header("Content-Type","application/json").header("Authorization","Bearer "+l.getAccessToken())
+		.body(TeamBody.addTeam(count))
 		.when().post("/org/1/team")
 		.then().log().all().assertThat().statusCode(200)
 		.extract().response().asString();
@@ -42,11 +34,9 @@ public class Team {
 		teamId = js2.getInt("data.team.id");
 	}
 	
-	@Test(priority=2, enabled = true)
-	@Description("Validate if user is able to update Team")
-	public void updateTeam() {
-		String updates = given().log().all().header("Content-Type","application/json").header("Authorization","Bearer "+accToken)
-		.body(TeamBody.updateTeam())
+	public void updateTeam(int count) {
+		String updates = given().log().all().header("Content-Type","application/json").header("Authorization","Bearer "+l.getAccessToken())
+		.body(TeamBody.updateTeam(count))
 		.when().put("/org/1/team/"+teamId+"")
 		.then().log().all().assertThat().statusCode(200)
 		.extract().response().asString();
@@ -56,18 +46,17 @@ public class Team {
 		Assert.assertEquals(teamNewId, teamId);
 	}
 	
-	@Test(priority=3, enabled = true)
-	@Description("Validate if user is able to get all Teams of an org")
-	public void getTeam() {
-		given().log().all().header("Content-Type","application/json").header("Authorization","Bearer "+accToken)
+	public String getTeam() {
+		String team = given().log().all().header("Content-Type","application/json").header("Authorization","Bearer "+l.getAccessToken())
 		.when().get("/org/1/team/")
-		.then().log().all().assertThat().statusCode(200);
+		.then().log().all().assertThat().statusCode(200)
+		.extract().response().asString();
+		
+		return team;
 	}
 	
-	@Test(priority=4, enabled = true)
-	@Description("Validate if user is able to get Team by team id")
 	public void getSingleTeam() {
-		String singleTeam = given().log().all().header("Content-Type","application/json").header("Authorization","Bearer "+accToken)
+		String singleTeam = given().log().all().header("Content-Type","application/json").header("Authorization","Bearer "+l.getAccessToken())
 		.when().get("/org/1/team/"+teamId+"")
 		.then().log().all().assertThat().statusCode(200)
 		.extract().response().asString();
@@ -77,10 +66,8 @@ public class Team {
 		Assert.assertEquals(teamNewId, teamId);
 	}
 	
-	@Test(priority=5, enabled = true)
-	@Description("Validate if user is able to delete Team")
 	public void deleteTeam() {
-		String deleteTeam = given().log().all().header("Content-Type","application/json").header("Authorization","Bearer "+accToken)
+		String deleteTeam = given().log().all().header("Content-Type","application/json").header("Authorization","Bearer "+l.getAccessToken())
 		.when().delete("/org/1/team/"+teamId+"")
 		.then().log().all().assertThat().statusCode(200)
 		.extract().response().asString();

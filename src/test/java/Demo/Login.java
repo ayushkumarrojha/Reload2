@@ -1,89 +1,93 @@
 package Demo;
 
-import io.qameta.allure.Description;
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
 
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
 
-import org.testng.Assert;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
+import java.util.Arrays;
+import java.util.List;
 
-import files.LoginReqBod;
-import files.ReusableMethod;
+import org.testng.Assert;
+
+import Payload.LoginReqBod;
+import Utilities.ReusableMethod;
 
 public class Login {
 	
-	public static String accToken;
-	public static String refToken;
+
 	final String baseUrl = "http://localhost:5002/v0";
+	private String access_token = null;
+	private String refresh_token = null;
 	
-	@BeforeClass
-	public void setup() {
+	public void setBaseURI() {
 		RestAssured.baseURI = baseUrl;
 	}
-	
-	@Test(enabled = true)
-	@Description("Validate if user is able to login")
-	public void login() {
+
+	public List<String> login(String email, String password) {
 		// TODO Auto-generated method stub
 		// login to cane sense api
 		
 		// given - All input details
 		// when - Submit the api - resource and http method
 		// then - validate the response
-		
-		//RestAssured.baseURI= "http://localhost:5002/v0";
+		setBaseURI();
 		String response = given().log().all().header("Content-Type","application/json")
-		.body(LoginReqBod.loginBod()).when().post("/auth/login")
+		.body(LoginReqBod.loginBod(email, password)).when().post("/auth/login")
 		.then().log().all().assertThat().statusCode(200).body("success", equalTo(true))
 		.header("X-Powered-By", "Express").extract().response().asString();
 		
 		System.out.println(response);
 		JsonPath js = ReusableMethod.rawToJson(response);//for parsing json
-		accToken = js.getString("data.authToken.accessToken");
-		refToken = js.getString("data.authToken.refreshToken");
-		System.out.println(accToken);
+		access_token = js.getString("data.authToken.accessToken");
+		refresh_token = js.getString("data.authToken.refreshToken");
+		 
+		return Arrays.asList(access_token, refresh_token);
 	}
 	
-	@Test(enabled = true)
-	@Description("Validate if reset password is working")
 	public void resetPassword() {
-		
-		given().log().all().header("Authorization","Bearer "+accToken).header("Content-Type","application/json")
+		given().log().all().header("Authorization","Bearer "+this.getAccessToken()).header("Content-Type","application/json")
 		.body(LoginReqBod.resetBod()).when().post("/auth/reset-password")
 		.then().log().all().assertThat().statusCode(200).body("success", equalTo(true));
 	}
-		
-		/*given().log().all().header("Authorization","Bearer "+accToken).header("Content-Type","application/json")
-		.body(LoginReqBod.fpBod()).when().post("/auth/forgot-password")
-		.then().log().all().assertThat().statusCode(200).body("success", equalTo(true));*/
-	
-	@Test(enabled = true)
-	@Description("Validate if refresh token is working")
+//		Forget password
+//		/*given().log().all().header("Authorization","Bearer "+accToken).header("Content-Type","application/json")
+//		.body(LoginReqBod.fpBod()).when().post("/auth/forgot-password")
+//		.then().log().all().assertThat().statusCode(200).body("success", equalTo(true));*/
+//	
 	public void refreshToken() {
 		
-		String refresh  = given().log().all().header("Authorization","Bearer "+refToken).header("Content-Type", "none")
+		String refresh  = given().log().all().header("Authorization","Bearer "+refresh_token).header("Content-Type", "none")
 		.when().post("/auth/refresh-token")
 		.then().log().all().assertThat().statusCode(200).extract().response().asString();
 		
 		JsonPath js1 = ReusableMethod.rawToJson(refresh);
-		accToken = js1.getString("data.authToken.accessToken");
+		access_token = js1.getString("data.authToken.accessToken");
 	}
 	
-	@Test(enabled = true)
-	@Description("Validate if who am i is working")
 	public void whoAmI() {
 		
 		
-		String whoami  = given().log().all().header("Authorization","Bearer "+accToken)
+		String whoami  = given().log().all().header("Authorization","Bearer "+access_token)
 		.when().get("/auth/whoami")
 		.then().log().all().assertThat().statusCode(200).extract().response().asString();
 		
 		JsonPath js2 = ReusableMethod.rawToJson(whoami);
 		String user = js2.getString("data.user.username");
-		Assert.assertEquals(user, "ayush2394@outlook.com");
+		Assert.assertEquals(user, "ayushk@geekyants.com");
 	}
+	
+	
+	public Login(String email, String password){
+		List<String> tokens = this.login(email, password);
+		this.access_token = tokens.get(0);
+		this.refresh_token = tokens.get(1);
+	}
+	
+	public String getAccessToken() {
+		return this.access_token;
+	}
+	
+	
 }

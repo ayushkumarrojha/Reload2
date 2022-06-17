@@ -21,8 +21,8 @@ public class University {
 	
 	String access_token = null;
 	public static int universityId;
-	final String baseUrl = "http://localhost:5002/v0";
-	Login l = new Login(Constants.email, Constants.password);
+	String baseUrl = null;
+	Login l = new Login(Constants.email, Constants.password, Constants.baseUri);
 	
 	public void addUniversity(int count) {		
 		//add university

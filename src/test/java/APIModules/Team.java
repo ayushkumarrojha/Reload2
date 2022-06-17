@@ -20,8 +20,8 @@ public class Team {
 	
 	String access_token = null;
 	public static int teamId;
-	final String baseUrl = "http://localhost:5002/v0";
-	Login l = new Login(Constants.email, Constants.password);
+	String baseUrl = null;
+	Login l = new Login(Constants.email, Constants.password, Constants.baseUri);
 	
 	public void addTeam(int count) {
 		String team = given().log().all().header("Content-Type","application/json").header("Authorization","Bearer "+l.getAccessToken())
@@ -47,7 +47,7 @@ public class Team {
 	}
 	
 	public String getTeam() {
-		String team = given().log().all().header("Content-Type","application/json").header("Authorization","Bearer "+l.getAccessToken())
+		String team = given().log().all().header("Authorization","Bearer "+l.getAccessToken())
 		.when().get("/org/1/team/")
 		.then().log().all().assertThat().statusCode(200)
 		.extract().response().asString();
@@ -56,7 +56,7 @@ public class Team {
 	}
 	
 	public void getSingleTeam() {
-		String singleTeam = given().log().all().header("Content-Type","application/json").header("Authorization","Bearer "+l.getAccessToken())
+		String singleTeam = given().log().all().header("Authorization","Bearer "+l.getAccessToken())
 		.when().get("/org/1/team/"+teamId+"")
 		.then().log().all().assertThat().statusCode(200)
 		.extract().response().asString();
@@ -67,7 +67,7 @@ public class Team {
 	}
 	
 	public void deleteTeam() {
-		String deleteTeam = given().log().all().header("Content-Type","application/json").header("Authorization","Bearer "+l.getAccessToken())
+		String deleteTeam = given().log().all().header("Authorization","Bearer "+l.getAccessToken())
 		.when().delete("/org/1/team/"+teamId+"")
 		.then().log().all().assertThat().statusCode(200)
 		.extract().response().asString();

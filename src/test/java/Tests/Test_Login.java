@@ -10,12 +10,13 @@ public class Test_Login {
 
 	String email = System.getenv("EMAIL");
 	String password = System.getenv("PASSWORD");
-	Login login = new Login(email, password);
+	String baseUri = System.getenv("BASEURI");
+	Login login = new Login(email, password, baseUri);
 	
 	@Test(priority=1, enabled = true)
 	@Description("Validate if user is able login")
 	public void login_test() {
-		login.login(Constants.email, Constants.password);
+		login.login(Constants.email, Constants.password, Constants.baseUri);
 	}
 	
 	@Test(priority=2, enabled = true)

@@ -4,7 +4,7 @@ import Utilities.ReadJsonFile;
 import io.restassured.path.json.JsonPath;
 
 public class UniversityBody {
-	public static JsonPath js = ReadJsonFile.read("/Users/ayushkumarojha/Documents/Reload2/src/test/java/Payload/university.json");
+	public static JsonPath js = ReadJsonFile.read("/src/test/java/Files/university.json");
 	
 	public static String addUniversity(int count) {
 		

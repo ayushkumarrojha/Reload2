@@ -16,9 +16,9 @@ public class Sensor {
 	String baseUrl = null;
 	Login l = new Login(Constants.email, Constants.password, Constants.baseUri);
 	
-	public void addSensor() {
+	public void addSensor(int count) {
 		String sen = given().log().all().header("Content-Type","application/json").header("Authorization","Bearer "+l.getAccessToken())
-		.body(SensorReqBody.addSensor())
+		.body(SensorReqBody.addSensor(count))
 		.when().post("/sensor")
 		.then().log().all().assertThat().statusCode(200)
 		.extract().response().asString();
@@ -36,16 +36,16 @@ public class Sensor {
 				return sensorCount;
 	}
 	
-	public void deleteSensor() {
-		String deleteSensor = given().log().all().header("Authorization","Bearer "+l.getAccessToken())
-		.when().delete("/sensor/"+id_Sensor+"")
-		.then().log().all().assertThat().statusCode(200)
-		.extract().response().asString();
-		
-		JsonPath js2 = ReusableMethod.rawToJson(deleteSensor);
-		boolean status = js2.getBoolean("data.sensors[0].deleted");
-		Assert.assertEquals(status, true);
-	}
+//	public void deleteSensor() {
+//		String deleteSensor = given().log().all().header("Authorization","Bearer "+l.getAccessToken())
+//		.when().delete("/sensor/"+id_Sensor+"")
+//		.then().log().all().assertThat().statusCode(200)
+//		.extract().response().asString();
+//
+//		JsonPath js2 = ReusableMethod.rawToJson(deleteSensor);
+//		boolean status = js2.getBoolean("data.sensors[0].deleted");
+//		Assert.assertEquals(status, true);
+//	}
 	
 	public void updateSensor() {
 		given().log().all().header("Content-Type","application/json").header("Authorization","Bearer "+l.getAccessToken())

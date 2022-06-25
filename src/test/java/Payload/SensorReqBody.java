@@ -5,14 +5,14 @@ import io.restassured.path.json.JsonPath;
 
 public class SensorReqBody {
 	
-	public static JsonPath js = ReadJsonFile.read("/Users/ayushkumarojha/Documents/Reload2/src/test/java/Payload/sensor.json");
-	static int num = (int)(Math.random()*100);
-	static String name = Integer.toString(num);
+	public static JsonPath js = ReadJsonFile.read("/src/test/java/Files/sensor.json");
+//	static int num = (int)(Math.random()*100);
+//	static String name = Integer.toString(num);
 	
-	public static String addSensor() {
+	public static String addSensor(int count) {
 		return "{\n"
-				+ "  \"name\": \""+js.getString("name")+name+"\",\n"
-				+ "  \"mac\": \""+js.getString("mac")+name+"\"\n"
+				+ "  \"name\": \""+js.getString("name")+(count)+"\",\n"
+				+ "  \"mac\": \""+js.getString("mac")+(count+10)+"\"\n"
 				+ "}";
 	}
 	

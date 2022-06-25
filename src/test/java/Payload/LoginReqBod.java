@@ -13,7 +13,7 @@ public class LoginReqBod {
 	}
 	
 	public static String resetBod() {
-		JsonPath js = ReadJsonFile.read("/Users/ayushkumarojha/Documents/Reload2/src/test/java/Payload/login.json");
+		JsonPath js = ReadJsonFile.read("/src/test/java/Files/login.json");
 		return "{\n"
 				+ "    \"oldPassword\": \""+js.getString("oldPassword")+"\",\n"
 				+ "    \"newPassword\": \""+js.getString("newPassword")+"\",\n"

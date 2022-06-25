@@ -19,4 +19,9 @@
       <class name="Tests.Test_Team"/>
     </classes>
   </test>
+  <test name="Sensor APIs">
+    <classes>
+      <class name="Tests.Test_Sensor"/>
+    </classes>
+  </test>
 </suite> <!-- Suite -->

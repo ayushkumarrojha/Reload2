@@ -5,7 +5,7 @@ import io.restassured.path.json.JsonPath;
 
 public class TeamBody {
 	
-	public static JsonPath js = ReadJsonFile.read("/Users/ayushkumarojha/Documents/Reload2/src/test/java/Payload/team.json");
+	public static JsonPath js = ReadJsonFile.read("/src/test/java/Files/team.json");
 	
 	public static String addTeam(int count) {
 		String payload = "{\n"

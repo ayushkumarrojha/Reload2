@@ -73,6 +73,12 @@ public class Login {
 		String user = js2.getString("data.user.username");
 		Assert.assertEquals(user, "ayushk@geekyants.com");
 	}
+
+	public void getUsers(){
+		given().log().all().header("Authorization","Bearer "+access_token)
+		.when().get("/user")
+		.then().log().all().assertThat().statusCode(200);
+	}
 	
 	
 	public Login(String email, String password, String baseUri){

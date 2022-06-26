@@ -37,4 +37,10 @@ public class Test_Login {
 		login.whoAmI();
 	}
 
+	@Test(priority=5, enabled = true)
+	@Description("Validate if user is able to get all other users")
+	public void getUsers_test() {
+		login.getUsers();
+	}
+
 }

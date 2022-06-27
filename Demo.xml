@@ -4,27 +4,29 @@
   <listeners>
   <listener class-name="customListeners.Listeners"></listener>
   </listeners>
-<!--  <test name="Login">-->
-<!--    <classes>-->
-<!--      <class name="Tests.Test_Login"/>-->
-<!--    </classes>-->
-<!--  </test> -->
-<!--  <test name="University APIs">-->
-<!--    <classes>-->
-<!--      <class name="Tests.Test_Universities"/>-->
-<!--    </classes>-->
-<!--  </test>-->
+  <test name="Login">
+    <classes>
+      <class name="Tests.Test_Login"/>
+    </classes>
+  </test> 
+  <test name="University APIs">
+    <classes>
+      <class name="Tests.Test_Universities"/>
+    </classes>
+  </test>
   <test name="Teams APIs">
     <classes>
-<!--      <class name="Tests.Test_Team"/>-->
-<!--      <class name="Tests.Test_Roster"/>-->
+      <class name="Tests.Test_Team"/>
+      <class name="Tests.Test_Roster"/>
+        <class name="Tests.Test_Players"></class>
+        <class name="Tests.Test_Visits"></class>
       <class name="Tests.Test_PerformActivity"></class>
     </classes>
   </test>
-<!--  <test name="Sensor APIs">-->
-<!--    <classes>-->
-<!--      <class name="Tests.Test_Sensor"/>-->
-<!--    </classes>-->
-<!--  </test>-->
+  <test name="Sensor APIs">
+    <classes>
+      <class name="Tests.Test_Sensor"/>
+    </classes>
+  </test>
 
 </suite> <!-- Suite -->

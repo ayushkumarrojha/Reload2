@@ -11,6 +11,7 @@ public class VisitReqBod {
         return "{\n" +
                 "  \"id_visit_type\": 1,\n" +
                 "  \"id_team\": 1,\n" +
+                "  \"id_surface\": 2,\n" +
                 "  \"visit_date\": \"2022-10-10T16:30\",\n" +
                 "  \"id_status\": 1,\n" +
                 "  \"id_players\": [1,2,3],\n" +
@@ -22,6 +23,7 @@ public class VisitReqBod {
         return "{\n" +
                 "  \"id_visit_type\": 1,\n" +
                 "  \"id_team\": 1,\n" +
+                "  \"id_surface\": 2,\n" +
                 "  \"visit_date\": \"2022-06-04T16:30\",\n" +
                 "  \"id_status\": 1,\n" +
                 "  \"id_position\": 17,\n" +

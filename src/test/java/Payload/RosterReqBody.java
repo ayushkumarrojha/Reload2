@@ -14,6 +14,7 @@ public class RosterReqBody {
                 "            \"row_id\": 1,\n" +
                 "            \"first_name\": \"Joey\",\n" +
                 "            \"last_name\": \"Aurelio\",\n" +
+                "            \"nickname\":  \"joe\",\n" +
                 "            \"email\": \"fosterHank@gmail.com\",\n" +
                 "            \"jersey_no\": 3,\n" +
                 "            \"birthdate\": \"1997-05-03\",\n" +
@@ -29,6 +30,7 @@ public class RosterReqBody {
                 "            \"row_id\": 2,\n" +
                 "            \"first_name\": \"Evan\",\n" +
                 "            \"last_name\": \"donny\",\n" +
+                "            \"nickname\":  \"don\",\n" +
                 "            \"email\": \"kimHank@gmail.com\",\n" +
                 "            \"jersey_no\": 4,\n" +
                 "            \"birthdate\": \"1998-10-02\",\n" +

@@ -13,6 +13,7 @@ public class PlayerReqBody {
                 "        {\n" +
                 "          \"first_name\": \"Sam\",\n" +
                 "          \"last_name\": \"Elliott\",\n" +
+                "          \"nickname\":  \"Elly\",\n" +
                 "          \"email\": \"Elliott0"+count+"@eoscast.com\",\n" +
                 "          \"jersey_no\": 92,\n" +
                 "          \"birthdate\": \"1995-05-01\",\n" +

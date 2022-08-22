@@ -19,8 +19,7 @@ public class PlayerReqBody {
                 "          \"birthdate\": \"1995-05-01\",\n" +
                 "          \"sacrum_height\":59,\n" +
                 "          \"weight\": 50,\n" +
-                "          \"height\": 60,\n" +
-                "          \"id_status\": 1\n" +
+                "          \"height\": 60\n" +
                 "        }\n" +
                 "    ]\n" +
                 "}";

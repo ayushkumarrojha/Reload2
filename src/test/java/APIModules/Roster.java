@@ -17,7 +17,7 @@ public class Roster {
     String baseUrl = null;
     Login l = new Login(Constants.email, Constants.password, Constants.baseUri);
 
-    public void addRoster(){
+    public int addRoster(){
         String rosterBulkAdd = given().log().all().header("Content-Type","application/json").header("Authorization","Bearer "+l.getAccessToken())
         .body(RosterReqBody.AddRosterBody())
         .when().post("/org/1/team/"+Team.teamId+"/roster")
@@ -26,6 +26,7 @@ public class Roster {
 
         JsonPath js1 = ReusableMethod.rawToJson(rosterBulkAdd);
         playerId = js1.getInt("data.rosters[0].id");
+        return playerId;
     }
 
     public void getRoster(){

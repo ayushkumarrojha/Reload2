@@ -14,6 +14,7 @@
       <class name="Tests.Test_Visits"></class>
       <class name="Tests.Test_PerformActivity"></class>
       <class name="Tests.Test_Sensor"/>
+      <class name="Tests.Test_InjuryReport"/>
     </classes>
   </test>
 
